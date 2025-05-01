@@ -25,7 +25,7 @@ Tasks covered:
 - Visualization of embeddings using t-SNE
 - Confusion matrix comparisons
 
-Colab Notebook: [Open in Colab](https://colab.research.google.com/placeholder-part1-link)
+Colab Notebook: [Open in Colab](https://colab.research.google.com/drive/1fkOuFchsXCFdBeHDIAP3aptpjy7bJd8x?usp=sharing)
 
 Reference:
 - https://keras.io/examples/vision/supervised-contrastive-learning/
@@ -54,7 +54,7 @@ This part demonstrates the power of pretrained models across four different data
 - Model: BERT (from TFHub)
 - Use Case: Text classification using sentence-level pooled embeddings
 
-Colab Notebook: [Open in Colab](https://colab.research.google.com/placeholder-part2-link)
+Colab Notebook: [Open in Colab](https://colab.research.google.com/drive/14MZ1YPcrmYFvVL3PfjH_vEeoKFL3TMu0?usp=sharing)
 
 References:
 - https://www.tensorflow.org/tutorials/images/transfer_learning
@@ -76,7 +76,7 @@ This part demonstrates zero-shot learning by leveraging text-image alignment and
 - Model: BiT m-r50x1 from TensorFlow Hub
 - Task: Fine-tune BiT as a feature extractor with a classification head
 
-Colab Notebook: [Open in Colab](https://colab.research.google.com/placeholder-part3-link)
+Colab Notebook: [Open in Colab](https://colab.research.google.com/drive/1QM_RC5VE_rsHwtLCfKqnddrE9-l3YDx2?usp=sharing)
 
 References:
 - https://towardsdatascience.com/how-to-try-clip-openais-zero-shot-image-classifier-439d75a34d6b
@@ -85,31 +85,38 @@ References:
 
 ---
 
-## Part 4: Vision Classifiers
+## Part 4: Vision Classifiers with EfficientNet and BiT
 
-This part evaluates pretrained and state-of-the-art models on standard image classification benchmarks.
+This part demonstrates transfer learning on three core vision datasets — MNIST, Fashion MNIST, and CIFAR-10 — using pretrained models: **EfficientNetB0** and **BiT** (simulated with ResNet50V2 from Keras Applications). It showcases both **feature extraction** and **fine-tuning**, while enabling fast experimentation by subsampling the dataset and resizing inputs.
 
 ### Datasets:
-- MNIST (digits)
-- Fashion MNIST (clothing)
-- CIFAR-10 (10 object classes)
+- **MNIST** (grayscale handwritten digits)
+- **Fashion MNIST** (grayscale clothing images)
+- **CIFAR-10** (RGB natural images)
+
+### Key Features:
+- Uses smaller dataset subsets (e.g., 3000 training samples) for speed
+- Converts grayscale images to RGB for compatibility with ImageNet-pretrained models
+- Resizes images to 96×96
+- Applies data augmentation and normalization
+- Implements:
+  - Feature extraction with **EfficientNetB0**
+  - Fine-tuning top layers of EfficientNet
+  - Transfer learning using **BiT-like ResNet50V2**
+- Plots training/validation curves and visualizes predictions
 
 ### Models and Techniques:
-- EfficientNetB0 (transfer learning)
-- BiT from TFHub (feature extractor)
-- MLP-Mixer (fully connected image model)
-- ConvNeXt-v2 (state-of-the-art CNN)
+- **EfficientNetB0**: Pretrained feature extractor with optional fine-tuning
+- **BiT (simulated)**: ResNet50V2 used in place of original BiT
+- Training and evaluation performed using Keras Functional API
+- Results include accuracy/loss plots and prediction visualizations
 
-Experiments include:
-- Comparing accuracy across datasets
-- Training efficiency and runtime
-- Impact of fine-tuning vs. freezing base models
+**Colab Notebook**: [Open in Colab](https://colab.research.google.com/drive/1SBO5IkvZfpQWP6uZsugeIUTTes1Xs3zJ?usp=sharing)
 
-Colab Notebook: [Open in Colab](https://colab.research.google.com/placeholder-part4-link)
-
-References:
-- https://keras.io/examples/vision/mlp_image_classification/
-- https://tfhub.dev/s?deployment-format=lite&module-type=image-classification&q=convnext
+### References:
+- https://keras.io/api/applications/efficientnet/
+- https://keras.io/api/applications/resnet/
+- https://www.tensorflow.org/tutorials/images/transfer_learning
 
 ---
 
